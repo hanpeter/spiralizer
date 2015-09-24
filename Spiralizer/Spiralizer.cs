@@ -12,6 +12,9 @@ namespace Spiralizer
 
 		private const int MAX_VALUE = 100;
 
+		/// <summary>
+		/// Creates a 2D array with a random x and y dimensions. The values are capped at 100.
+		/// </summary>
 		public Spiralizer()
 		{
 			var random = new Random();
@@ -22,6 +25,11 @@ namespace Spiralizer
 			this.Init();
 		}
 
+		/// <summary>
+		/// Creates a 2D array with given x and y dimensions.
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		public Spiralizer(int x, int y)
 		{
 			this.x = x;
@@ -42,6 +50,11 @@ namespace Spiralizer
 			}
 		}
 
+		/// <summary>
+		/// Returns a comma deliminated string with the element of array listed out in spiral manner.
+		/// </summary>
+		/// <param name="offset">Starting point for the traversing</param>
+		/// <returns>A comma deliminated string with the element of array listed out in spiral manner</returns>
 		public string Spiralize(int offset = 0)
 		{
 			if (offset >= Math.Ceiling(this.x / 2.0M) || offset >= Math.Ceiling(this.y / 2.0M))
@@ -82,6 +95,10 @@ namespace Spiralizer
 			return string.Join(",", list) + "," + Spiralize(offset + 1);
 		}
 
+		/// <summary>
+		/// Returns a string representation of 2D array with comma and newline delimiters.
+		/// </summary>
+		/// <returns>A string representation of 2D array with comma and newline delimiters</returns>
 		public override string ToString()
 		{
 			var builder = new StringBuilder();
